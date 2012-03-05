@@ -7,14 +7,14 @@ namespace ContractsAndInheritance.Interfaces
     { }
 
     [ContractClassFor(typeof(IList))]
-    internal abstract class ListContract : IList, ICollection
+    internal abstract class ListContract : IList
     {
         public void Add(string s)
         {
-            Contract.Requires(s != null);
+            // Lets create stronger postcondition than ICollection.Add
             Contract.Ensures(Count == Contract.OldValue(Count) + 1);
         }
-
+        // Постусловия свойства Count и метода Contains не поменялись
         public int Count
         {
             get

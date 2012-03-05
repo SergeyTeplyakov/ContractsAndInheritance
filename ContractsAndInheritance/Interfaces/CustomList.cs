@@ -8,8 +8,9 @@ namespace ContractsAndInheritance.Interfaces
 
         public void Add(string s)
         {
+
             // IList postcondition is Count = OldCount + 1,
-            // we're violating that postcondition
+            // we're violating it
             _backingList.Add(s);
             _backingList.Add(s);
         }
